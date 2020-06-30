@@ -1,0 +1,144 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp2
+{
+    public partial class mainForm : Form
+    {
+        int Count = 0; // количество нажатий
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void click_btn_Click(object sender, EventArgs e)
+        {
+            Count++; //увеличиваем на 1
+            countLabel.Text = Count.ToString(); // выводим в Label
+            if (Count == 60)
+
+            {
+                MessageBox.Show("Вы достигли значения 60");
+                click_btn.Enabled = false;
+            }
+
+            if (Count != 60)
+            {
+
+                click_btn.Enabled = true;
+            }
+
+            if (Count == 15)
+            {
+                MessageBox.Show("You win");
+            }
+
+
+        }
+
+        private void firstButton_Click(object sender, EventArgs e)
+        {
+            Count = 0;
+            CountLabel.Text = Count.ToString();
+        }
+
+        private void secondButton_Click(object sender, EventArgs e)
+        {
+            if (Count < 50)
+            {
+                Count += 5;
+                count_FirstLabel.Text = Count.ToString(); // выводим в Label
+            }
+            else
+            {
+                Count += 10;
+                countLabel.Text = Count.ToString(); // выводим в Label
+            }
+            if (Count == 60)
+
+            {
+                MessageBox.Show("Вы достигли значения 60");
+                click_btn.Enabled = false;
+            }
+
+            if (Count == 15)
+            {
+                MessageBox.Show("You win");
+            }
+        }
+
+        private void thirdButton_Click(object sender, EventArgs e)
+        {
+            Count += 10; // увеличиваем на 10 
+            countLabel.Text = Count.ToString(); // выводим в Label
+            if (Count == 60)
+
+            {
+                MessageBox.Show("Вы достигли значения 60");
+                click_btn.Enabled = false;
+            }
+
+            if (Count == 15)
+            {
+                MessageBox.Show("You win");
+            }
+
+        }
+
+        private void fourthButton_Click(object sender, EventArgs e)
+        {
+            Count -= 4; // вычетаем 4
+            countLabel.Text = Count.ToString(); // выводим в Label
+
+            if (Count == 60)
+
+            {
+                MessageBox.Show("Вы достигли значения 60");
+                click_btn.Enabled = false;
+            }
+
+            if (Count == 15)
+            {
+                MessageBox.Show("You win");
+            }
+        }
+
+
+        private void fifthButton_Click(object sender, EventArgs e)
+        {
+            Count++; //увеличиваем на 1
+            countLabel.Text = Count.ToString(); // выводим в Label
+
+            if (Count == 15)
+            {
+                MessageBox.Show("You win");
+            }
+
+            if (Count == 60)
+
+            {
+                MessageBox.Show("Вы достигли значения 60");
+                click_btn.Enabled = false;
+            }
+
+        }
+
+        private void какИгратьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("При достижении числа 15 - вы побеждаете;" +
+                " При достижении 60 - кнопка блокируется");
+        }
+    }
+}
